@@ -1,0 +1,91 @@
+//audio from https://psykoticrefuge.bandcamp.com/track/canadian-love-tap with permission to use if linked back to them
+var audio = new Audio('PsyKotic Refuge - Canadian Love Tap.mp3'); 
+
+var vidcapture, ctracker, drawcanvas;
+
+function setup() {
+	var	cnv	=	createCanvas(windowWidth, windowHeight/2);
+	cnv.parent('p5canvas');
+	// background(255,0,0);
+
+	vidcapture = createCapture(VIDEO);
+	vidcapture.size(vidcapture.width*2, vidcapture.height*3);
+	vidcapture.hide();
+	ctracker = new clm.tracker();
+	ctracker.init();
+	ctracker.start(vidcapture.elt);
+
+	drawcanvas = document.getElementById('defaultCanvas0');
+
+
+}
+
+function draw() {
+	audio.volume = .5;
+	audio.play();
+	// background(255, 30);
+	translate(vidcapture.width, 0)
+	scale(-1, 1)
+
+	var	position = ctracker.getCurrentPosition();
+
+	if	(position) {
+	 	 // ctracker.draw(drawcanvas);
+ 	 	 //colorchange
+
+ 	 	 // print("x:" + position[62][0]);
+ 	 	 // print("y:" + position[62][0]);
+
+	 	 var r = map(position[2][0], 250, 300, 0, 255, true);
+	 	 var b = map(position[12][1], 150, 200, 0, 225, true);
+	 	 var g = map(position[37][0], 220, height, 0, 225, true);
+	 	 var g2 = map(position[37][0], height, 220, 0, 225, true);
+
+
+	 	 // background(r, 255, b);
+	 	 // tint(255, 126);
+	 	 // image(vidcapture, 0, 0);
+	 	 background(r, g2, g, 10);
+
+	 	 //cheeks
+	 	 stroke(0);
+	 	 fill(r,g,b, 10);
+	 	 
+	 	 ellipse(position[0][0], position[0][1], position[6][0], position[6][1]);
+	 	 ellipse(position[14][0], position[14][1], position[8][0], position[8][1]);
+	 	 //mouth
+	 	 strokeWeight(5);
+	 	 stroke(b,g,r);
+	 	 line(position[44][0], position[44][1], position[60][0], position[60][1],);
+	 	 line(position[60][0], position[60][1], position[50][0], position[50][1],);
+
+	 	 line(position[44][0], position[44][1], position[57][0], position[57][1],);
+	 	 line(position[57][0], position[57][1], position[50][0], position[50][1],);
+		 //eyes
+ 		 fill(255, 0, 0);
+	 	 noStroke();
+	 	 ellipse(position[27][0], position[27][1], 15);
+	 	 ellipse(position[32][0], position[32][1], 15);	 }
+
+
+}
+
+	// translate(mouseX, mouseY);
+	// noFill()
+	// noStroke();
+	// fill(255,0,0);
+	// stroke(mouseX, mouseY, 0);
+	// circle(mouseX, mouseY, 20);
+	// print("x:" + mouseX);
+	// print("y:" + mouseY);
+
+	// var xColor = map(mouseX, 0, width, 0, 200)
+	// var yColor = map(mouseY, 0, height, 0, 140)
+
+	// stroke(xColor, 0, yColor);
+
+	// var xRotate = map(mouseX, 0, width, 0, 360);
+
+	// angleMode(DEGREES);
+	// rotate(xRotate);
+	// live(0, 0,0 50, 50);
