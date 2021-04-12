@@ -1,5 +1,5 @@
 //audio from https://psykoticrefuge.bandcamp.com/track/canadian-love-tap with permission to use if linked back to them
-var audio = new Audio('PsyKotic Refuge - Canadian Love Tap.mp3'); 
+// var audio = new Audio('PsyKotic Refuge - Canadian Love Tap.mp3'); 
 
 var vidcapture, ctracker, drawcanvas;
 
@@ -21,8 +21,8 @@ function setup() {
 }
 
 function draw() {
-	audio.volume = .5;
-	audio.play();
+	// audio.play();
+	// audio.volume = .5;
 	// background(255, 30);
 	translate(vidcapture.width, 0)
 	scale(-1, 1)
@@ -65,27 +65,21 @@ function draw() {
  		 fill(255, 0, 0);
 	 	 noStroke();
 	 	 ellipse(position[27][0], position[27][1], 15);
-	 	 ellipse(position[32][0], position[32][1], 15);	 }
+	 	 ellipse(position[32][0], position[32][1], 15);	 
+
+	 	  var volume = map(position[62][0], 0, width, 0, 1);
+	 	  volume = constrain(volume, 0, 1);
+
+	 	}
 
 
 }
 
-	// translate(mouseX, mouseY);
-	// noFill()
-	// noStroke();
-	// fill(255,0,0);
-	// stroke(mouseX, mouseY, 0);
-	// circle(mouseX, mouseY, 20);
-	// print("x:" + mouseX);
-	// print("y:" + mouseY);
+let play = function(){
 
-	// var xColor = map(mouseX, 0, width, 0, 200)
-	// var yColor = map(mouseY, 0, height, 0, 140)
+	document.getElementById("audio").play()
+		// audio.volume = .5;
 
-	// stroke(xColor, 0, yColor);
 
-	// var xRotate = map(mouseX, 0, width, 0, 360);
 
-	// angleMode(DEGREES);
-	// rotate(xRotate);
-	// live(0, 0,0 50, 50);
+}
