@@ -75,15 +75,14 @@ function draw() {
 
 }
 
-var audio = new Audio('PsyKotic Refuge - Canadian Love Tap.mp3'); 
+// var audio = new Audio('PsyKotic Refuge - Canadian Love Tap.mp3'); 
 
 //code from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
 let play = function(){
 
-	// document.getElementById("audio").play()
-	// 	audio.volume = .5;
+	document.getElementById("audio").play()
+		audio.volume = .5;
 
-	audio.play();
 
 
 }
