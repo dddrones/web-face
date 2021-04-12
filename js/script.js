@@ -75,6 +75,8 @@ function draw() {
 
 }
 
+// var audio = new Audio('music.mp3'); 
+
 //code from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
 let play = function(){
 
