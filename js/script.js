@@ -67,18 +67,20 @@ function draw() {
 	 	 ellipse(position[27][0], position[27][1], 15);
 	 	 ellipse(position[32][0], position[32][1], 15);	 
 
-	 	  var volume = map(position[62][0], 0, width, 0, 1);
-	 	  volume = constrain(volume, 0, 1);
+	 	 //couldnt get audio to work with face movement but i kept it in anyways because it adds to the overall effect
+	 	  // var volume = map(position[62][0], 0, width, 0, 1);
+	 	  // volume = constrain(volume, 0, 1);
 
 	 	}
 
 
 }
 
+//code from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
 let play = function(){
 
 	document.getElementById("audio").play()
-		// audio.volume = .5;
+		audio.volume = .5;
 
 
 
